@@ -1,5 +1,9 @@
 <template>
-  <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
+  <div
+    class="wrapper"
+    :class="{ 'nav-open': $sidebar.showSidebar }"
+    style="background: #000"
+  >
     <!-- <side-bar
       :background-color="sidebarBackground"
       short-title="Argon"
@@ -64,7 +68,10 @@
       <div @click="toggleSidebar">
         <!-- your content here -->
         <router-view></router-view>
-        <content-footer v-if="!$route.meta.hideFooter"></content-footer>
+        <content-footer
+          v-if="!$route.meta.hideFooter"
+          style="background: #000"
+        ></content-footer>
       </div>
     </div>
   </div>

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <base-header type="gradient-success" class="pb-6 pb-8 pt-5 pt-md-8">
+    <base-header
+      type=""
+      class="pb-6 pb-8 pt-5 pt-md-8"
+      style="background: #000 !important"
+    >
       <div class="row">
         <div class="col-xl-3 col-lg-6">
           <stats-card
@@ -8,7 +12,8 @@
             type="gradient-red"
             sub-title="35"
             icon="ni ni-active-40"
-            class="mb-4 mb-xl-0"
+            class="mb-4 mb-xl-0 border-none text-white"
+            style="background: #172b4d; color: #fff !important"
           >
             <template v-slot:footer>
               <span class="text-success mr-2">
@@ -24,7 +29,8 @@
             type="gradient-orange"
             sub-title="2,356"
             icon="ni ni-chart-pie-35"
-            class="mb-4 mb-xl-0"
+            class="mb-4 mb-xl-0 text-white"
+            style="background: #172b4d"
           >
             <template v-slot:footer>
               <span class="text-success mr-2">
@@ -40,7 +46,8 @@
             type="gradient-green"
             sub-title="924kw "
             icon="ni ni-money-coins"
-            class="mb-4 mb-xl-0"
+            class="mb-4 mb-xl-0 text-white"
+            style="background: #172b4d"
           >
             <template v-slot:footer>
               <span class="text-danger mr-2">
@@ -56,13 +63,20 @@
             type="gradient-info"
             sub-title="49,65%"
             icon="ni ni-chart-bar-32"
-            class="mb-4 mb-xl-0"
+            class="mb-4 mb-xl-0 text-white"
+            style="background: #172b4d"
           >
+            <div class="custom-control custom-switch px-0">
+              <label class="switch">
+                <input type="checkbox" @click="toggleCheckbox" />
+                <div class="slider round"></div>
+              </label>
+            </div>
             <template v-slot:footer>
               <span class="text-success mr-2">
-                <i class="fa fa-arrow-up"></i> 54.8%
+                <!-- <i class="fa fa-arrow-up"></i> 54.8% -->
               </span>
-              <span class="text-nowrap">Since last month</span>
+              <span class="text-nowrap">Switch block status</span>
             </template>
           </stats-card>
         </div>
@@ -323,4 +337,76 @@ export default {
   },
 };
 </script>
-<style></style>
+
+<style>
+span.h2 {
+  color: #fff !important;
+}
+</style>
+<style scoped>
+.h2 {
+  color: #fff !important;
+}
+body {
+  text-align: center;
+  background: #51c3a0;
+  padding: 50px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #32325d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #32325d;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
